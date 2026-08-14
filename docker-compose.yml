@@ -2,7 +2,8 @@ services:
   postgres:
     image: postgres:17
     restart: always
-    # TODO: .envを必ず用意する運用が固まったら、":-sentinel"等のフォールバックデフォルト値は外す
+    # TODO: drop the ":-sentinel" fallback defaults once always providing a
+    # .env is settled practice.
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-sentinel}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sentinel}
