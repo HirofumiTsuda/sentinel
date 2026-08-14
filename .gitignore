@@ -14,8 +14,10 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
+# The Python template's bare "lib/" and "lib64/" entries are deliberately
+# omitted here: they are unanchored, so they also matched frontend/src/lib/ and
+# silently excluded hand-written source (client.ts, unwrap.ts). The virtualenv
+# they were meant to cover is already ignored by the ".venv" entry below.
 parts/
 sdist/
 var/
@@ -216,3 +218,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# sentinel: generated API contract artifacts (regenerated at build/CI time,
+# see docs/concept.md). Treated like Protobuf-generated code: never committed.
+# Generated output lives in its own directory so this stays a directory rule
+# and never has to enumerate hand-written files sitting next to it.
+backend/openapi.json
+frontend/src/lib/api/generated/

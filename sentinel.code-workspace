@@ -1,0 +1,57 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    },
+
+    "[python]": {
+      "editor.defaultFormatter": "charliermarsh.ruff",
+      "editor.codeActionsOnSave": {
+        "source.fixAll.ruff": "explicit",
+        "source.organizeImports.ruff": "explicit"
+      }
+    },
+    "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/bin/python",
+
+    "[javascript][javascriptreact][typescript][typescriptreact]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.workingDirectories": [{ "directory": "frontend", "changeProcessCWD": true }],
+
+    "[json][jsonc][markdown][yaml]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/*.pyc": true,
+      "**/.pytest_cache": true,
+      "**/.ruff_cache": true,
+      "**/.venv": true,
+      "**/node_modules": true,
+      "**/.next": true
+    },
+    "search.exclude": {
+      "**/__pycache__": true,
+      "**/.venv": true,
+      "**/node_modules": true,
+      "**/.next": true,
+      "**/uv.lock": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "ms-python.python",
+      "charliermarsh.ruff",
+      "hverlin.mise-vscode"
+    ]
+  }
+}
