@@ -225,3 +225,7 @@ __marimo__/
 # and never has to enumerate hand-written files sitting next to it.
 backend/openapi.json
 frontend/src/lib/api/generated/
+
+# sentinel: local Claude Code configuration and skills. Kept out of the repo
+# rather than merely unstaged, so a `git add .` can't sweep it into a commit.
+.claude/
