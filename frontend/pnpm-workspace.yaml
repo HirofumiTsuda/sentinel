@@ -1,0 +1,15 @@
+# unrs-resolver's postinstall just runs napi-postinstall to pick the native
+# binding matching this platform out of its optionalDependencies. Reviewed and
+# allowed; without it eslint's import resolver falls back to a slower path.
+allowBuilds:
+  unrs-resolver: true
+
+# Note: as of pnpm v10, settings like "overrides" moved out of package.json's
+# "pnpm" field and into this file. See https://pnpm.io/settings
+
+# Forces a patched js-yaml: @redocly/openapi-core (pulled in via
+# openapi-typescript) used to pin the vulnerable 4.3.0 (CVE-2026-59870).
+# Currently redundant (redocly now pins 4.3.1 itself) but kept as a safety
+# net in case that pin regresses.
+overrides:
+  js-yaml: "^4.3.1"
