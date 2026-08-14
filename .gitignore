@@ -219,8 +219,8 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# sentinel: generated API contract artifacts (regenerated at build/CI time,
-# see docs/concept.md). Treated like Protobuf-generated code: never committed.
+# sentinel: generated API contract artifacts, treated like Protobuf-generated
+# code — never committed, regenerated at build/CI time with `pnpm generate:api`.
 # Generated output lives in its own directory so this stays a directory rule
 # and never has to enumerate hand-written files sitting next to it.
 backend/openapi.json
@@ -229,3 +229,7 @@ frontend/src/lib/api/generated/
 # sentinel: local Claude Code configuration and skills. Kept out of the repo
 # rather than merely unstaged, so a `git add .` can't sweep it into a commit.
 .claude/
+
+# sentinel: personal design notes, kept local rather than published. Ignored
+# for the same reason as .claude/ — so they can't be committed by accident.
+docs/
