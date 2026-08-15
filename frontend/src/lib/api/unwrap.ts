@@ -13,7 +13,11 @@ type ApiResult<T> = {
  * of being restated at each call site. `resource` only labels the thrown error.
  */
 export function unwrap<T>(result: ApiResult<T>, resource: string): T {
-  if (result.response.status === 404) {
+  // 404 means the row is missing; 422 means the id in the URL isn't even a
+  // valid UUID, which FastAPI rejects before the route runs. Both mean the URL
+  // points at nothing, so both belong on the not-found page rather than the
+  // error page — a mistyped URL is not a server fault.
+  if (result.response.status === 404 || result.response.status === 422) {
     notFound();
   }
   if (result.data === undefined) {
